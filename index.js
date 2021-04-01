@@ -14,6 +14,9 @@ app.use(cors())
 app.use(bodyParser.json())
 app.use(bodyParser.urlencoded({ extended: false }))
 
+app.get('/', (req, res)=>{
+  res.send("Welcome to mobile valley server")
+})
 
 const client = new MongoClient(uri, { useNewUrlParser: true, useUnifiedTopology: true });
 client.connect(err => {

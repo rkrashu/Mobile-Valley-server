@@ -50,9 +50,10 @@ client.connect(err => {
     })
   })
 
-  const orderCollection = client.db(`mobile-valley`).collection("orders");
+  const orderCollection = client.db("mobile-valley").collection("orders");
   app.post('/orderConfirm', (req, res) =>{
     const details = req.body
+    console.log(details)
     orderCollection.insertOne(details)
     .then(result => res.send(result.insertedCount>0))
   })

@@ -24,7 +24,6 @@ client.connect(err => {
 
   app.post('/addProducts', (req,res)=>{
       const productInfo = req.body
-      // console.log(productInfo)
     ProductsCollection.insertOne(productInfo)
     .then(result => res.send(result.insertedCount>0))
   })
@@ -55,7 +54,7 @@ client.connect(err => {
   app.post('/orderConfirm', (req, res) =>{
     const details = req.body
     orderCollection.insertOne(details)
-    .then(result => console.log(result))
+    .then(result => res.send(result.insertedCount>0))
   })
 
   app.get('/order', (req, res) => {
